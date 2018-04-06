@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+function includeIfExists($file)
+{
+    if (file_exists($file)) {
+        return include $file;
+    }
+}
+
+if ((!$loader = includeIfExists(__DIR__.'/vendor/autoload.php')) && (!$loader = includeIfExists(__DIR__.'/../../autoload.php'))) {
+    die('You must set up the project dependencies, run the following commands:'.PHP_EOL.
+        'curl -sS https://getcomposer.org/installer | php'.PHP_EOL.
+        'php composer.phar install'.PHP_EOL);
+}
+
+use Symfony\Component\Console\Application;
+use Psssst\AnalyzeCommand;
+
+/**
+ * @author Mickaël Andrieu <andrieu.travail@gmail.com>
+ *
+ * A simple CLI tool to analyze a PrestaShop module.
+ */
+$application = new Application('psssst', '1.0.0');
+$command = new AnalyzeCommand();
+
+$application->add($command);
+
+$application->setDefaultCommand($command->getName(), true);
+$application->run();

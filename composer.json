@@ -1,0 +1,23 @@
+{
+    "name": "loveoss/psssst",
+    "description": "A module analyzer",
+    "type": "project",
+    "require": {
+        "nikic/php-parser": "^4.0",
+        "symfony/console": "^4.0",
+        "symfony/finder": "^4.0"
+    },
+    "autoload": {
+        "psr-4": { "Psssst\\": "src" }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mickaël Andrieu",
+            "email": "andrieu.travail@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^4.0"
+    }
+}
