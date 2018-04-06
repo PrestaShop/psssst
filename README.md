@@ -17,3 +17,10 @@ Really simple, only the module path is needed.
 ## Cool! Can you add XXX feature?
 
 Nah, I don't have time or motivation to make something big. If you like it, star it and fork it: this project is using the MIT License.
+
+## Features to come
+
+Only two:
+
+* JSON export
+* XML export
