@@ -1,6 +1,6 @@
 {
     "name": "loveoss/psssst",
-    "description": "A module analyzer",
+    "description": "A PrestaShop module analyzer",
     "type": "project",
     "require": {
         "php": "^7.1.3",
