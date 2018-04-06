@@ -3,6 +3,7 @@
     "description": "A module analyzer",
     "type": "project",
     "require": {
+        "php": "^7.1.3",
         "nikic/php-parser": "^4.0",
         "symfony/console": "^4.0",
         "symfony/finder": "^4.0"
