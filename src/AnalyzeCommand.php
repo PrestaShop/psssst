@@ -79,7 +79,10 @@ final class AnalyzeCommand extends Command
         return <<<'HELP'
 The <info>%command.name%</info> analyze a PrestaShop module:
 
-  <info>php %command.full_name%</info> <comment>path/to/module/</comment>
+  <info>php %command.full_name%</info> <comment>path/to/module(s)/</comment>
+
+You can also export results in JSON:
+  <info>php %command.full_name%</info> <comment>path/to/module(s)/</comment> <info>--format=json</info>
 HELP;
     }
 }
