@@ -12,7 +12,7 @@ This is why with this application you can retrieve the list of hooks for a modul
 
 Really simple, only the module path is needed.
 
-![demo](https://user-images.githubusercontent.com/1247388/38399615-ae07778c-394b-11e8-83a8-07c638ec4872.png)
+![demo](https://user-images.githubusercontent.com/1247388/38938308-7f75e3ca-4325-11e8-9eb4-f5fa2fdf79ba.png)
 
 Alternatively, you can use `--export` option to retrieve results as JSON instead.
 
