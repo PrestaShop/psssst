@@ -53,12 +53,14 @@ final class ModuleParser
                 $stmts = $this->phpParser->parse($file->getContents());
                 
                 $stmts = $this->phpTraverser->traverse($stmts);
+
                 if (!empty($this->hookVisitor::$hooks)) {
-                    $hooks[$file->getFilename()] = $this->hookVisitor::$hooks;
+                    $hooks[$this->hookVisitor::$module] = $this->hookVisitor::$hooks;
                 }
             } catch (Error $e) {
                 echo 'Parse Error: ', $e->getMessage();
             }
+            $this->hookVisitor::reset();
         }
         
         return $hooks;
