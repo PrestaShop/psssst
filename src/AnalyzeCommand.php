@@ -60,11 +60,17 @@ final class AnalyzeCommand extends Command
         }
 
         $io->title('Psssst, the amazing PrestaShop module parser!');
-        
-        foreach ($moduleData as $module => $hooks) {
-            $io->section("Detecting hooks in module $module");
-            $io->listing($hooks);
-        }  
+
+        foreach ($moduleData as $module) {
+            $io->section(
+                sprintf(
+                    'Detecting hooks in module %s:%s',
+                    $module['name'],
+                    $module['version']
+                )
+            );
+            $io->listing($module['hooks']);
+        }
 
         $io->success('Analysis done with success.');
     }
