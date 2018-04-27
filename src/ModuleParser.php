@@ -54,8 +54,7 @@ final class ModuleParser
 
                 $stmts = $this->phpTraverser->traverse($stmts);
 
-                if (!empty($this->hookVisitor::$hooks) &&
-                    !empty($this->hookVisitor::$version) &&
+                if (!empty($this->hookVisitor::$version) &&
                     !empty($this->hookVisitor::$module)
                 ) {
                     $hooks[] = [
