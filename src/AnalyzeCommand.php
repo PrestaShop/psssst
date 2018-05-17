@@ -64,12 +64,15 @@ final class AnalyzeCommand extends Command
         foreach ($moduleData as $module) {
             $io->section(
                 sprintf(
-                    'Detecting hooks in module %s:%s',
+                    'Detecting module %s:%s',
                     $module['name'],
                     $module['version']
                 )
             );
-            $io->listing($module['hooks']);
+
+            if (!empty($module['hooks'])) {
+                $io->listing($module['hooks']);
+            }
         }
 
         $io->success('Analysis done with success.');
