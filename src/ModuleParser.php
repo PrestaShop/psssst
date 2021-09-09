@@ -14,21 +14,21 @@ final class ModuleParser
     /**
      * PHP Parser.
      *
-     * @var PhpParser\Parser
+     * @var \PhpParser\Parser
      */
     private $phpParser;
 
     /**
      * PHP Traverser.
      *
-     * @var PhpParser\NodeTraverser
+     * @var \PhpParser\NodeTraverser
      */
     private $phpTraverser;
 
     /**
      * PHP Hook Visitor.
      *
-     * @var Psssst\HookVisitor
+     * @var \Psssst\HookVisitor
      */
     private $hookVisitor;
 
@@ -59,7 +59,11 @@ final class ModuleParser
                 ) {
                     $hooks[] = [
                         'name' => $this->hookVisitor::$module,
+                        'displayName' => $this->hookVisitor::$displayName,
                         'version' => $this->hookVisitor::$version,
+                        'description' => $this->hookVisitor::$description,
+                        'versionCompliancyMin' => $this->hookVisitor::$versionsCompliancyMin,
+                        'versionCompliancyMax' => $this->hookVisitor::$versionsCompliancyMax,
                         'hooks' => $this->hookVisitor::$hooks,
                     ];
                 }
