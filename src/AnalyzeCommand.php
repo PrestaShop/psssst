@@ -11,8 +11,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Psssst\ModuleParser;
-
 final class AnalyzeCommand extends Command
 {
 
@@ -56,7 +54,7 @@ final class AnalyzeCommand extends Command
         if ($input->getOption('export')) {
             $io->text(json_encode($moduleData));
 
-            return;
+            return 0;
         }
 
         $io->title('Psssst, the amazing PrestaShop module parser!');
@@ -76,6 +74,8 @@ final class AnalyzeCommand extends Command
         }
 
         $io->success('Analysis done with success.');
+
+        return 0;
     }
 
     /**
