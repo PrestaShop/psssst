@@ -1,5 +1,5 @@
 {
-    "name": "loveoss/psssst",
+    "name": "prestashop/psssst",
     "description": "A PrestaShop module analyzer",
     "type": "project",
     "require": {
