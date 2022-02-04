@@ -2,12 +2,10 @@
 
 namespace Psssst;
 
-use DateTime;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -62,12 +60,18 @@ final class AnalyzeCommand extends Command
         foreach ($moduleData as $module) {
             $io->section(
                 sprintf(
-                    'Detecting module %s:%s',
-                    $module['name'],
-                    $module['version']
+                    'Module %s',
+                    $module['name']
                 )
             );
+            $io->definitionList(
+                ['Version' => $module['version']],
+                ['Min' => $module['versionCompliancyMin']],
+                ['Max' => $module['versionCompliancyMax']],
+            );
 
+            $io->text('Hooks:');
+            $io->newLine();
             if (!empty($module['hooks'])) {
                 $io->listing($module['hooks']);
             }
