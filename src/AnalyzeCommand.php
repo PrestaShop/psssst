@@ -65,9 +65,13 @@ final class AnalyzeCommand extends Command
                 )
             );
             $io->definitionList(
+                ['DisplayName' => $module['displayName']],
+                ['Author' => $module['author']],
                 ['Version' => $module['version']],
                 ['Min' => $module['versionCompliancyMin']],
                 ['Max' => $module['versionCompliancyMax']],
+                ['Description' => $module['description']],
+                ['Tab' => $module['tab']]
             );
 
             $io->text('Hooks:');

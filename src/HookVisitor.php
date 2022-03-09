@@ -17,6 +17,10 @@ class HookVisitor extends NodeVisitorAbstract
 
     public static $version = null;
 
+    public static $author = null;
+
+    public static $tab = null;
+
     public static $description = null;
 
     public static $versionsCompliancyMin = null;
@@ -28,6 +32,9 @@ class HookVisitor extends NodeVisitorAbstract
         self::$hooks = [];
         self::$module = null;
         self::$version = null;
+        self::$author = null;
+        self::$tab = null;
+        self::$displayName = null;
         self::$versionsCompliancyMin = null;
         self::$versionsCompliancyMax = null;
         self::$description = null;
@@ -41,6 +48,14 @@ class HookVisitor extends NodeVisitorAbstract
 
         if ($this->nodeHasProperty($node, 'version')) {
             self::$version = $node->expr->value;
+        }
+
+        if ($this->nodeHasProperty($node, 'author')) {
+            self::$author = $node->expr->value;
+        }
+
+        if ($this->nodeHasProperty($node, 'tab')) {
+            self::$tab = $node->expr->value;
         }
 
         if ($this->nodeHasProperty($node, 'displayName')) {
