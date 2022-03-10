@@ -99,7 +99,7 @@ class HookVisitor extends NodeVisitorAbstract
                 $node->expr instanceof Node\Scalar\String_ ||
                 $node->expr instanceof Node\Expr\Array_ ||
                 $node->expr instanceof Node\Expr\MethodCall &&
-                $node->expr->name->name === 'trans'
+                ($node->expr->name->name === 'trans' || $node->expr->name->name === 'l')
             );
     }
 
@@ -123,7 +123,10 @@ class HookVisitor extends NodeVisitorAbstract
 
     protected function getString($node)
     {
-        if ($node->expr instanceof Node\Expr\MethodCall && $node->expr->name->name === 'trans') {
+        if (
+            $node->expr instanceof Node\Expr\MethodCall
+            && ($node->expr->name->name === 'trans' || $node->expr->name->name === 'l')
+        ) {
             return $node->expr->args[0]->value->value;
         } else if ($node->expr instanceof Node\Scalar\String_) {
             return $node->expr->value;
