@@ -61,6 +61,8 @@ final class ModuleParser
                         'name' => $this->hookVisitor::$module,
                         'displayName' => $this->hookVisitor::$displayName,
                         'version' => $this->hookVisitor::$version,
+                        'author' => $this->hookVisitor::$author,
+                        'tab' => $this->hookVisitor::$tab,
                         'description' => $this->hookVisitor::$description,
                         'versionCompliancyMin' => $this->hookVisitor::$versionsCompliancyMin,
                         'versionCompliancyMax' => $this->hookVisitor::$versionsCompliancyMax,

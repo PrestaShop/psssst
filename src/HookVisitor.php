@@ -17,6 +17,10 @@ class HookVisitor extends NodeVisitorAbstract
 
     public static $version = null;
 
+    public static $author = null;
+
+    public static $tab = null;
+
     public static $description = null;
 
     public static $versionsCompliancyMin = null;
@@ -28,6 +32,9 @@ class HookVisitor extends NodeVisitorAbstract
         self::$hooks = [];
         self::$module = null;
         self::$version = null;
+        self::$author = null;
+        self::$tab = null;
+        self::$displayName = null;
         self::$versionsCompliancyMin = null;
         self::$versionsCompliancyMax = null;
         self::$description = null;
@@ -41,6 +48,14 @@ class HookVisitor extends NodeVisitorAbstract
 
         if ($this->nodeHasProperty($node, 'version')) {
             self::$version = $node->expr->value;
+        }
+
+        if ($this->nodeHasProperty($node, 'author')) {
+            self::$author = $node->expr->value;
+        }
+
+        if ($this->nodeHasProperty($node, 'tab')) {
+            self::$tab = $node->expr->value;
         }
 
         if ($this->nodeHasProperty($node, 'displayName')) {
@@ -84,7 +99,7 @@ class HookVisitor extends NodeVisitorAbstract
                 $node->expr instanceof Node\Scalar\String_ ||
                 $node->expr instanceof Node\Expr\Array_ ||
                 $node->expr instanceof Node\Expr\MethodCall &&
-                $node->expr->name->name === 'trans'
+                ($node->expr->name->name === 'trans' || $node->expr->name->name === 'l')
             );
     }
 
@@ -108,7 +123,10 @@ class HookVisitor extends NodeVisitorAbstract
 
     protected function getString($node)
     {
-        if ($node->expr instanceof Node\Expr\MethodCall && $node->expr->name->name === 'trans') {
+        if (
+            $node->expr instanceof Node\Expr\MethodCall
+            && ($node->expr->name->name === 'trans' || $node->expr->name->name === 'l')
+        ) {
             return $node->expr->args[0]->value->value;
         } else if ($node->expr instanceof Node\Scalar\String_) {
             return $node->expr->value;
