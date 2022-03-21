@@ -16,6 +16,6 @@ Really simple, only the module path is needed.
 
 Alternatively, you can use `--export` option to retrieve results as JSON instead.
 
-## Cool! Can you add XXX feature?
+## LICENSE
 
-Nah, I don't have time or motivation to make something big. If you like it, star it and fork it: this project is using the MIT License.
+This project is using the MIT License.
